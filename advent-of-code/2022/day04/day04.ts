@@ -2,6 +2,7 @@ import { getInput } from "../lib.ts";
 
 const solution = (f: (a: number[], b: number[]) => number) =>
   getInput(Deno.args[0])
+    .trim()
     .split("\n")
     .map((line) =>
       line

@@ -4,7 +4,7 @@ export function getInput(file: string | undefined) {
   if (!file) {
     return new TextDecoder().decode(
       readAllSync(Deno.stdin),
-    ).trim();
+    );
   }
-  return Deno.readTextFileSync(file).trim();
+  return Deno.readTextFileSync(file);
 }
