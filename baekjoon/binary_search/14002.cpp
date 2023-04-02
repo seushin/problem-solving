@@ -15,17 +15,27 @@ int main()
 	int N;
 	std::cin >> N;
 
-	int A[N], parent[N];
+	int A[N];
 	for (int i = 0; i < N; ++i)
 	{
 		std::cin >> A[i];
 	}
 
+	/*
+	 * 트리 M의 깊이 i에 해당하는 원소 중 가장 작은 원소의 인덱스를 저장.
+	 * 다르게 말하면 트리 M의 평면도.
+	 * 따라서 실제 LIS를 알기 위해선 반드시 parent를 저장해둬야 한다.
+	 */
 	std::vector<int> M;
+	int parent[N];
 	for (int i = 0; i < N; ++i)
 	{
-		int pos = std::lower_bound(M.begin(), M.end(), A[i],
-								   [&A](auto i, auto b) -> bool { return A[i] < b; }) -
+		/*
+		 * A[i]를 트리 M의 깊이들에 해당하는 가장 작은 원소 중
+		 * A[i]보다 작은 것들 중 가장 큰(lower_bound) 원소의 자식으로 삽입.
+		 */
+		int pos = std::lower_bound(M.begin(), M.end(), i,
+								   [&A](auto a, auto b) -> bool { return A[a] < A[b]; }) -
 				  M.begin();
 
 		if (pos == M.size())
