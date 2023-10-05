@@ -48,7 +48,7 @@ BraceWrapping:
 BinPackParameters: false
 
 # 한 표현식이 여러 라인으로 나뉠 때 사용될 인덴트
-ContinuationIndentWidth: 4
+ContinuationIndentWidth: 8
 
 # 첫 라인 개행 허용
 KeepEmptyLinesAtTheStartOfBlocks: false
@@ -67,4 +67,4 @@ SpaceAfterTemplateKeyword: false
 # latest - vector<set<int>>
 Standard: c++03
 
-# vim: filetype=yaml
+# vim:filetype=yaml
